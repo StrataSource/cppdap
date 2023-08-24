@@ -50,7 +50,7 @@ class Impl : public dap::net::Server {
     }
 
     stopped = false;
-    thread = std::thread([=] {
+    thread = std::thread([=, this] {
       while (true) {
         if (auto rw = socket->accept()) {
           onConnect(rw);
